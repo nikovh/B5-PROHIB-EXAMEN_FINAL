@@ -1,0 +1,47 @@
+<ion-list>
+  <ion-item>
+    <ion-input 
+    [(ngModel)]="tituloStr" 
+    labelPlacement="stacked" 
+    required="required" 
+    minlength="5"
+    #titulo="ngModel"
+    placeholder="Mascota perdida...">
+      <div slot="label">Título</div>
+    </ion-input>
+  </ion-item>
+  <ion-item *ngIf="!titulo.valid && !titulo.pristine">
+    <ion-text color="danger">Escriba más de 5 caracteres</ion-text>
+  </ion-item>
+</ion-list>
+
+<ion-item>
+  <ion-button slot="start" (click)="takePicture()">
+    <ion-icon slot="start" name="camera-outline" />
+    fotografia
+  </ion-button>
+  <ion-img slot="end" style="height: 200px" [src]="picture">
+  </ion-img>
+</ion-item>
+
+<ion-list>
+  <ion-item>
+    <ion-input 
+    [(ngModel)]="descripcionStr" 
+    labelPlacement="stacked" 
+    required="required" 
+    minlength="20"
+    #descri="ngModel"
+    placeholder="Se perdió el día...">
+      <div slot="label">Descripción </div>
+    </ion-input>
+  </ion-item>
+  <ion-item *ngIf="!descri.valid && !descri.pristine">
+    <ion-text color="danger">Escriba más de 20 caracteres</ion-text>
+  </ion-item>
+</ion-list >
+
+<ion-button 
+  size="small" 
+  [disabled]="!titulo.valid || !descri.valid"
+  (click)="onClick()">GUARDAR</ion-button>

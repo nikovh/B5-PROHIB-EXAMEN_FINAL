@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Publicaciones
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/publicacion']">
+        <ion-icon icon="add-circle" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-publi-list [publicacion]="listaPublicaciones"></app-publi-list>
+</ion-content>
